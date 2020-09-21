@@ -14,12 +14,13 @@
 
   <script>
 
-    let URL = "https://github.com/login/oauth/authorize";
+    let URL = "https://www.linkedin.com/oauth/v2/authorization";
 
     let options = {
-      client_id: '35e8de24061ca19f4296',
+      client_id: '78aqjmku26f79p',
       redirect_uri: 'http://localhost:3000/oauth',
-      scope: 'read:user',
+      response_type:'code',
+      scope: 'r_liteprofile',
       state: 'asldfjdfs'
     }
 

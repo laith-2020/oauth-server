@@ -3,10 +3,8 @@
 db
 temp
 data
-.env
 *.crt
 *.key
-*.env
 package-lock.json
 
 ### Vim ###
