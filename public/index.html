@@ -2,38 +2,36 @@
 <html>
 
 <head>
-  <title>Auth Test</title>
+    <title>Auth Test</title>
 </head>
 
 <body>
-  <main>
+    <main>
 
-    <a id="oauth" href="#">Login</a>
+        <a id="oauth" href="#">Login</a>
 
-  </main>
+    </main>
 
-  <script>
+    <script>
+        let URL = "https://www.linkedin.com/oauth/v2/authorization";
 
-    let URL = "https://www.linkedin.com/oauth/v2/authorization";
+        let options = {
+            response_type: 'code',
+            client_id: '78aqjmku26f79p',
+            redirect_uri: 'http://localhost:3000/oauth',
+            scope: 'r_liteprofile r_emailaddress'
+                // state: 'asldfjdfs'
+        }
 
-    let options = {
-      client_id: '78aqjmku26f79p',
-      redirect_uri: 'http://localhost:3000/oauth',
-      response_type:'code',
-      scope: 'r_liteprofile',
-      state: 'asldfjdfs'
-    }
+        let QueryString = Object.keys(options).map((key) => {
+            return `${key}=` + encodeURIComponent(options[key]);
+        }).join("&");
 
-    let QueryString = Object.keys(options).map((key) => {
-      return `${key}=` + encodeURIComponent(options[key]);
-    }).join("&");
+        let authURL = `${URL}?${QueryString}`;
 
-    let authURL = `${URL}?${QueryString}`;
-
-    let link = document.getElementById('oauth');
-    link.setAttribute('href', authURL);
-
-  </script>
+        let link = document.getElementById('oauth');
+        link.setAttribute('href', authURL);
+    </script>
 
 
 </body>
